@@ -81,10 +81,11 @@ namespace Lab05
 
         public IVector Normalize()
         {
-            double norm_X = this.X / this.Length();
-            double norm_Y = this.Y / this.Length();
-
-            return new Vector2D(norm_X, norm_Y);
+            if (this.Length() != 0)
+            {
+                return new Vector2D(this.X / this.Length(), this.Y / this.Length());
+            }
+            else return new Vector2D(0, 0);
         }
 
         public double DotProduct(IVector vt2)
@@ -96,10 +97,8 @@ namespace Lab05
             throw new InvalidOperationException("Cannot calculate dot product with non-Vector2D.");
         }
 
-        public IVector CrossProduct(IVector vt2)
-        {
-
-        }
+        public IVector CrossProduct(IVector vt2) => throw new NotSupportedException("Cross product is not defined for 2D vectors.");
+        
     }
 
     class Vector3D : IVector
@@ -168,11 +167,12 @@ namespace Lab05
 
         public IVector Normalize()
         {
-            double norm_X = this.X / this.Length();
-            double norm_Y = this.Y / this.Length();
-            double norm_Z = this.Z / this.Length();
+            if (this.Length() != 0)
+            {
+                return new Vector3D(this.X / this.Length(), this.Y / this.Length(), this.Z / this.Length());
+            }
+            else return new Vector3D(0, 0, 0);
 
-            return new Vector3D(norm_X, norm_Y, norm_Z);
         }
 
         public double DotProduct(IVector vt2)
@@ -183,10 +183,20 @@ namespace Lab05
             }
             throw new InvalidOperationException("Cannot calculate dot product with non-Vector3D.");
         }
+
+        public IVector CrossProduct(IVector vt2)
+        {
+            if (vt2 is Vector3D v2)
+            {
+                return new Vector3D(
+                this.Y * v2.Z - this.Z * v2.Y,
+                this.Z * v2.X - this.X * v2.Z,
+                this.X * v2.Y - this.Y * v2.X);
+            }
+            throw new InvalidOperationException("Cannot calculate cross product with non-Vector3D."); 
+
+        }
     }
-
-
-
 
 
     class Program
