@@ -8,6 +8,7 @@ namespace Lab05
 {
     interface IVector
     {
+        void ShowInfo();
         IVector Add(IVector vector);
         IVector Substract(IVector vector);
         IVector Multiply(double scalar);
@@ -203,6 +204,31 @@ namespace Lab05
     {
         static void Main(string[] args)
         {
+            
+            Random rnd = new Random();
+            // Tạo list các vector
+            List<IVector> vectors = new List<IVector>();
+
+            // Thêm vào các vector ngẫu nhiên
+            for (int i = 0; i < 5; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    vectors.Add(new Vector2D(rnd.NextDouble() * 10, rnd.NextDouble() * 10));
+                }
+                else
+                {
+                    vectors.Add(new Vector3D(rnd.NextDouble() * 10, rnd.NextDouble() * 10, rnd.NextDouble() * 10));
+                }
+            }
+
+            // In ra các vector có trong list
+            foreach (IVector vtor in vectors)
+            {
+                vtor.ShowInfo();
+            }
+
+            Console.ReadLine();
         }
     }
 }
