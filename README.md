@@ -1,13 +1,13 @@
 # Lab05_OOP
 1. Khai báo một interface IVector gồm có các phương thức:
-        - Add(IVector vector): IVector
-        - Subtract(IVector vector): IVector
-        - Multiply(double scalar): IVector
-        - Divide(double scalar): IVector
-        - Length(): double
-        - Normalize(): IVector
-        - DotProduct(IVector vector): double
-        - CrossProduct(IVector vector): IVector
+        - Add(IVector vector): IVector<br>
+        - Subtract(IVector vector): IVector<br>
+        - Multiply(double scalar): IVector<br>
+        - Divide(double scalar): IVector<br>
+        - Length(): double<br>
+        - Normalize(): IVector<br>
+        - DotProduct(IVector vector): double<br>
+        - CrossProduct(IVector vector): IVector<br>
 để thực thi các chức năng: cộng 2 vector, trừ 2 vector, nhân vector với một số, chia vector cho một số, tính độ dài vector, chuẩn hóa vector (chia từng thành phần cho độ dài của vector, tích vô hướng, tích có hướng.
 2. Khai báo một lớp Vector2D và Vector3D kế thừa từ IVector và thực thi các phương thức của IVector.
 3. Trong hàm main, tạo ra một List các IVector và triệu gọi hàm tạo của Vector2D và Vector3D ngẫu nhiên cho từng phần tử trong List. Sau đó triệu gọi các phương thức tương ứng của IVector cho từng phần tử trong List.
