@@ -1,5 +1,5 @@
 # Lab05_OOP
-1. Khai báo một interface IVector gồm có các phương thức:
+1. Khai báo một interface IVector gồm có các phương thức:<br>
         - Add(IVector vector): IVector<br>
         - Subtract(IVector vector): IVector<br>
         - Multiply(double scalar): IVector<br>
