@@ -320,6 +320,14 @@ namespace Lab05
                 }
             #endregion
 
+            #region Length
+            foreach (IVector vtor in vectors)
+            {
+                Console.WriteLine($"Length of vector {vtor.Print()} = {vtor.Length()}");
+            }
+
+            #endregion
+
             #region Dot product 2 vectors
             Console.WriteLine("Dot product of 2 vectors");
 
