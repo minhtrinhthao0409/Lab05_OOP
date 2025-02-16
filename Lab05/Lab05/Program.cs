@@ -328,6 +328,14 @@ namespace Lab05
 
             #endregion
 
+            #region Normalize
+            foreach (IVector vtor in vectors)
+            {
+                Console.WriteLine($"Normalize of vector {vtor.Print()} = {vtor.Normalize()}");
+            }
+
+            #endregion
+
             #region Dot product 2 vectors
             Console.WriteLine("Dot product of 2 vectors");
 
@@ -350,8 +358,28 @@ namespace Lab05
                 }
             #endregion
 
+            #region Cross Product
 
-            Console.ReadLine();
+            for (int i = 0; i < vectors.Count; i++)
+                for (int j = i + 1; j < vectors.Count; j++)
+                {
+                    try
+                    {
+
+                        IVector resultAdd = vectors[i].CrossProduct(vectors[j]);
+                        string str_result = vectors[i].Print() + " + " + vectors[j].Print() + " = " + resultAdd.Print();
+                        Console.WriteLine("\t- " + str_result);
+
+                    }
+                    catch //InvalidOperationException ex)
+                    {
+                        //Console.WriteLine(ex.Message);
+                        continue;
+                    }
+                }
+
+                    #endregion
+                    Console.ReadLine();
         }
     }
 }
