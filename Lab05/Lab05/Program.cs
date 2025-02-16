@@ -9,6 +9,7 @@ namespace Lab05
     interface IVector
     {
         void ShowInfo();
+        string Print();
         IVector Add(IVector vector);
         IVector Substract(IVector vector);
         IVector Multiply(double scalar);
@@ -227,6 +228,120 @@ namespace Lab05
             {
                 vtor.ShowInfo();
             }
+
+            // Làm các phép tính trên vector
+            #region Add 2 vectors
+
+            Console.WriteLine("Add 2 vectors");
+
+            for (int i = 0; i < vectors.Count; i++)
+                for (int j = i + 1; j < vectors.Count; j++)
+                {
+                    try
+                    {
+
+                        IVector resultAdd = vectors[i].Add(vectors[j]);
+                        string add = vectors[i].Print() + " + " + vectors[j].Print() + " = " + resultAdd.Print();
+                        Console.WriteLine("\t- " + add);
+
+                    }
+                    catch //InvalidOperationException ex)
+                    {
+                        //Console.WriteLine(ex.Message);
+                        continue;
+                    }
+                }
+            #endregion
+
+            #region Substract 2 vectors
+            Console.WriteLine("Substract 2 vectors");
+
+            for (int i = 0; i < vectors.Count; i++)
+                for (int j = i + 1; j < vectors.Count; j++)
+                {
+                    try
+                    {
+
+                        IVector resultMin = vectors[i].Substract(vectors[j]);
+                        string sub = vectors[i].Print() + " - " + vectors[j].Print() + " = " + resultMin.Print();
+                        Console.WriteLine("\t- " + sub);
+
+                    }
+                    catch //InvalidOperationException ex)
+                    {
+                        //Console.WriteLine(ex.Message);
+                        continue;
+                    }
+                }
+            #endregion
+
+            #region Multiply
+            Console.WriteLine("Multiply");
+
+            for (int i = 0; i < vectors.Count; i++)
+                
+                {
+                    try
+                    {
+
+                        IVector resultMul = vectors[i].Multiply(2);
+                        string mul = vectors[i].Print() + " * " + 2 + " = " + resultMul.Print();
+                        Console.WriteLine("\t- " + mul);
+
+                    }
+                    catch //InvalidOperationException ex)
+                    {
+                        //Console.WriteLine(ex.Message);
+                        continue;
+                    }
+                }
+            #endregion
+
+            #region Divide
+
+            Console.WriteLine("Divide");
+
+            for (int i = 0; i < vectors.Count; i++)
+                
+                {
+                    try
+                    {
+
+                        IVector resultDiv = vectors[i].Divide(2);
+                        string div = vectors[i].Print() + " \\ " + 2 + " = " + resultDiv.Print();
+                        Console.WriteLine("\t- " + div);
+
+                    }
+                    catch //InvalidOperationException ex)
+                    {
+                        //Console.WriteLine(ex.Message);
+                        continue;
+                    }
+                }
+            #endregion
+
+            #region Dot product 2 vectors
+            Console.WriteLine("Dot product of 2 vectors");
+
+            for (int i = 0; i < vectors.Count; i++)
+                for (int j = i + 1; j < vectors.Count; j++)
+                {
+                    try
+                    {
+
+                        double resulDot = vectors[i].DotProduct(vectors[j]);
+                        string str_resultdot = vectors[i].Print() + " * " + vectors[j].Print() + " = " + resulDot;
+                        Console.WriteLine("\t- " + str_resultdot);
+
+                    }
+                    catch //InvalidOperationException ex)
+                    {
+                        //Console.WriteLine(ex.Message);
+                        continue;
+                    }
+                }
+            #endregion
+
 
             Console.ReadLine();
         }
